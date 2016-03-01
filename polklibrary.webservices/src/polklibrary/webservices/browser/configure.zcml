@@ -1,0 +1,68 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    xmlns:plone="http://namespaces.plone.org/plone"
+    i18n_domain="polklibrary.webservices">
+
+    
+    <browser:page
+        for="*"
+        name="getResearchDatabase"
+        class=".ws_get_research_db.WSView"
+        permission="zope2.View"
+        />
+        
+    
+    <browser:page
+        for="*"
+        name="setAvailability"
+        class=".ws_set_availability.WSView"
+        permission="zope2.View"
+        />
+    <browser:page
+        for="*"
+        name="setAvailability.php"
+        class=".ws_set_availability.WSView"
+        permission="zope2.View"
+        />
+        
+    <browser:page
+        for="*"
+        name="getAvailableResources"
+        class=".ws_get_availability.WSView"
+        permission="zope2.View"
+        />
+            
+    <browser:page
+        for="*"
+        name="getAnalyticsUserGroup"
+        class=".ws_get_analytic_group.WSView"
+        permission="zope2.View"
+        />
+                    
+    <browser:page
+        for="*"
+        name="getCoursePage"
+        class=".ws_get_course_page.WSView"
+        permission="zope2.View"
+        />
+        
+    
+    
+    
+    
+    
+  <!-- Set overrides folder for Just-a-Bunch-Of-Templates product -->
+  <include package="z3c.jbot" file="meta.zcml" />
+  <browser:jbot
+      directory="overrides"
+      layer="polklibrary.webservices.interfaces.IPolklibraryWebservicesLayer"
+      />
+
+  <!-- Publish static files -->
+  <browser:resourceDirectory
+      name="polklibrary.webservices"
+      directory="static"
+      />
+
+</configure>

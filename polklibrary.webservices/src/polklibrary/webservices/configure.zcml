@@ -1,0 +1,49 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:five="http://namespaces.zope.org/five"
+    xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+    xmlns:i18n="http://namespaces.zope.org/i18n"
+    i18n_domain="polklibrary.webservices">
+
+  <includeDependencies package="." />
+
+  <i18n:registerTranslations directory="locales" />
+
+  <include package=".browser" />
+
+
+  <genericsetup:registerProfile
+      name="default"
+      title="polklibrary.webservices"
+      directory="profiles/default"
+      description="Installs the polklibrary.webservices add-on."
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      />
+
+  <genericsetup:importStep
+      name="polklibrary.webservices-postInstall"
+      title="polklibrary.webservices post_install import step"
+      description="Post install import step from polklibrary.webservices"
+      handler=".setuphandlers.post_install">
+  </genericsetup:importStep>
+
+  <genericsetup:registerProfile
+      name="uninstall"
+      title="polklibrary.webservices"
+      directory="profiles/uninstall"
+      description="Uninstalls the polklibrary.webservices add-on."
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      />
+
+  <genericsetup:importStep
+      name="polklibrary.webservices-uninstall"
+      title="polklibrary.webservices uninstall import step"
+      description="Import step run during ininstalling polklibrary.webservices"
+      handler=".setuphandlers.uninstall">
+  </genericsetup:importStep>
+
+  <utility
+      factory=".setuphandlers.HiddenProfiles"
+      name="polklibrary.webservices-hiddenprofiles" />
+
+</configure>
