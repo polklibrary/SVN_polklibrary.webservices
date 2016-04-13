@@ -12,13 +12,20 @@
         permission="zope2.View"
         />
         
-    
+    <browser:page
+        for="*"
+        name="getSubjectGuide"
+        class=".ws_get_subject_guide.WSView"
+        permission="zope2.View"
+        />
+        
     <browser:page
         for="*"
         name="setAvailability"
         class=".ws_set_availability.WSView"
         permission="zope2.View"
         />
+        
     <browser:page
         for="*"
         name="setAvailability.php"
@@ -32,7 +39,7 @@
         class=".ws_get_availability.WSView"
         permission="zope2.View"
         />
-            
+        
     <browser:page
         for="*"
         name="getAnalyticsUserGroup"

@@ -20,7 +20,7 @@ class WSView(BrowserView):
 
     def process(self):
         """ do main work here """
-        brains = api.content.find(portal_type='polklibrary.type.rdb.models.database', sort_on='sortable_title', sort_order='ascending')
+        brains = api.content.find(portal_type='polklibrary.type.subjects.models.subject', sort_on='sortable_title', sort_order='ascending')
         for brain in brains:
             self._data[brain.getId] = self.transform(brain)
 
@@ -36,9 +36,7 @@ class WSView(BrowserView):
             'getId':brain.getId,
             'Title':brain.Title,
             'Description':brain.Description,
-            'getURL':brain.getURL(),
-            'getRemoteUrl':brain.getRemoteUrl,
-            'resources':brain.resources,
+            'getURL':brain.getURL()
         }
 
 
