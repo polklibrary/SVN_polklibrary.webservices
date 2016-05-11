@@ -1,0 +1,174 @@
+<!DOCTYPE html PUBLIC
+  "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+	  lang="en"
+	  i18n:domain="plone">
+
+	<head>
+		<link rel="stylesheet" type="text/css" href="++resource++polklibrary.webservices/computer.availability.css"/>
+		<script type="text/javascript" src="++resource++polklibrary.webservices/jquery.js"></script>
+		<script type="text/javascript" src="++resource++polklibrary.webservices/computer.availability.js"></script>
+	
+        <script type="text/javascript">
+            $(document).ready(function(){
+                if(document.location.href.indexOf('mode=kiosk') != -1) {
+                    $('body').addClass('kiosk-mode');
+                }
+            });
+        </script>
+        <style>
+            body.kiosk-mode * {
+                cursor: url('++resource++polklibrary.webservices/pointer.png'), url('++resource++polklibrary.webservices/pointer-small.png'), pointer !important;
+            }
+        </style>
+    </head>
+
+	<body style="width: 915px; margin: 0 auto; padding: 20px;">
+		<div id="content">
+			<div id="content-core">
+            
+                <div id="browser_message"></div>
+
+                <div id="canvas_div">
+
+                    <div id="floor_one">
+                    
+                        <div class="floor_section">
+                            <canvas id="emc"></canvas>
+                            <canvas id="emc_walkway"></canvas>
+                            <canvas id="polk101_walkway"></canvas>
+                            <canvas id="polk101"></canvas>
+                        </div>
+                        
+                        <div id="floor_one_tab">
+                            <h1 class="floor_header">1st Floor</h1>
+                            <p>Bathrooms</p>
+                            <p>Photocopiers</p>
+                            <p>Printers</p>
+                            <p>Scanner</p>
+                        </div>
+                        
+                        <div id="detailed_floor_one_tab">
+                            <h1 class="floor_header"></h1>
+                            <h1 class="floor_sub_header"></h1>
+                            <p class="showPCs">
+                                <span class="showPCs_light"> </span>
+                                <span class="showPCs_text">PC</span>
+                            </p>
+                            <p class="showMacs">
+                                <span class="showMacs_light"> </span>
+                                <span class="showMacs_text">Macs</span>
+                            </p>
+                            <!--<p class="showStudyRooms">
+                                <span class="showStudyRooms_light"> </span>
+                                <span class="showStudyRooms_text">Study Rooms</span>
+                            </p>-->
+                            <p>____________</p>
+                            <div id="sub_detailed_floor_one_tab">
+                                <p class="printer"><span id="legend_label">P</span>rinters</p>
+                                <p class="scanner"><span id="legend_label">S</span>canner</p>
+                                <p class="bathroom">Bathrooms</p>
+                                <p class="photocopier">Photocopiers</p>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    
+                    <div id="floor_two">
+                    
+                        <div class="floor_section">
+                            <canvas id="floor_two_north"></canvas>
+                            <canvas id="floor_two_north_walkway"></canvas>
+                            <canvas id="floor_two_south_walkway"></canvas>
+                            <canvas id="floor_two_south"></canvas>
+                        </div>
+                        
+                        <div id="floor_two_tab">
+                            <h1 class="floor_header">2nd Floor</h1>
+                            <p>Bathrooms</p>
+                            <p>Photocopier</p>
+                            <p>Study Rooms</p>
+                        </div>
+                        
+                        <div id="detailed_floor_two_tab">
+                            <h1 class="floor_header"></h1>
+                            <h1 class="floor_sub_header"></h1>
+                            <p class="showPCs">
+                                <span class="showPCs_light"> </span>
+                                <span class="showPCs_text">PC</span>
+                            </p>
+                            <p class="showStudyRooms">
+                                <span class="showStudyRooms_light"> </span>
+                                <span class="showStudyRooms_text">Study Rooms</span>
+                            </p>
+                            <p>____________</p>
+                            <div id="sub_detailed_floor_two_tab">
+                                <p class="bathroom">Bathrooms</p>
+                                <p class="photocopier">Photocopier</p>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    
+                    <div id="floor_three">
+                        <canvas id="floor_three_north"></canvas>
+                        <canvas id="floor_three_north_walkway"></canvas>
+                        <canvas id="floor_three_south_walkway"></canvas>
+                        <canvas id="floor_three_south"></canvas>
+                        
+                        <div id="floor_three_tab">
+                            <h1 class="floor_header">3rd Floor</h1>
+                            <p>Bathrooms</p>
+                            <p>Photocopier</p>
+                            <p>Printer</p>
+                            <p>Study Rooms</p>
+                        </div>
+                        
+                        <div id="detailed_floor_three_tab">
+                            <h1 class="floor_header"></h1>
+                            <h1 class="floor_sub_header"></h1>
+                            <p class="showPCs">
+                                <span class="showPCs_light"> </span>
+                                <span class="showPCs_text">PC</span>
+                            </p>
+                            <p class="showStudyRooms">
+                                <span class="showStudyRooms_light"> </span>
+                                <span class="showStudyRooms_text">Study Rooms</span>
+                            </p>
+                            <p>____________</p>
+                            <div id="sub_detailed_floor_three_tab">
+                                <p class="printer"><span id="legend_label">P</span>rinter</p>
+                                <p class="bathroom">Bathrooms</p>
+                                <p class="photocopier">Photocopier</p>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    
+                    <div id="back"><img src="http://www.uwosh.edu/library/portal_skins/custom/computer_availability/images/arrow.png" />BACK</div>
+                    
+                    <div id="detailed_arrow"><img src="http://www.uwosh.edu/library/portal_skins/custom/computer_availability/images/detailed_arrow.png" /></div>
+                    
+                </div>
+
+                <div id="popup">
+                    <div id="popup_title"></div>
+                    <div id="popup_button">Reserve Room</div>
+                    <div id="popup_context"></div>
+                </div>
+
+                        
+
+                <span style="clear: both"></span>
+                            
+                            
+            
+            
+			</div>
+		</div>
+	</body>
+
+
+</html>

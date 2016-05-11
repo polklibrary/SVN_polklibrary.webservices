@@ -18,25 +18,27 @@ class WSView(BrowserView):
         
     def process(self):
         """ do main work here """
-        brains = api.content.find(portal_type='polklibrary.type.rdb.models.database')
-        for brain in brains:
-            self._data[brain.getId] = self.transform(brain)
-            
-        if 'id' in self.request.form:
-            d = self._data.get(self.request.form.get('id'), None)
-            self._data = d
+        context = api.content.get(path='/library/ws/resources')
         
+        computer_id = self.request.form.get('computerId','')
+        available = True 
+        if int(self.request.form.get('status', -1)) <= 0:
+            available = False
         
-    def transform(self, brain):
-        return {
-            'id':brain.getId,
-            'getId':brain.getId,
-            'Title':brain.Title,
-            'Description':brain.Description,
-            'getURL':brain.getURL(),
-            'getRemoteUrl':brain.getRemoteUrl,
-            'resources':brain.resources,
-        }
+        brains = api.content.find(context=context, portal_type='resource_availability', title=computer_id)
+        if brains:
+            obj = brains[0].getObject()
+            obj.available = available
+            obj.reindexObject()
+        else:
+            obj = api.content.create(
+                        type='resource_availability',
+                        title=computer_id,
+                        container=context,
+                    )
+            obj.available = available
+            obj.reindexObject()
+
         
     @property
     def portal(self):

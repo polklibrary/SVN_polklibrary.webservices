@@ -4,6 +4,15 @@
     xmlns:plone="http://namespaces.plone.org/plone"
     i18n_domain="polklibrary.webservices">
 
+
+    <browser:page
+        for="*"
+        name="getComputerAvailabilityFrame"
+        class=".iframe_computers.IframeComputersPlain"
+        permission="zope2.View"
+        />
+        
+    
     
     <browser:page
         for="*"
@@ -53,8 +62,8 @@
         class=".ws_get_course_page.WSView"
         permission="zope2.View"
         />
-        
-    
+            
+
     
     
     

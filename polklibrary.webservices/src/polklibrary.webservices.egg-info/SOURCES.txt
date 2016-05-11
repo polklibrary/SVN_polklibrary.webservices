@@ -27,6 +27,7 @@ src/polklibrary/webservices/browser/ws_get_analytic_group.py
 src/polklibrary/webservices/browser/ws_get_availability.py
 src/polklibrary/webservices/browser/ws_get_course_page.py
 src/polklibrary/webservices/browser/ws_get_research_db.py
+src/polklibrary/webservices/browser/ws_get_subject_guide.py
 src/polklibrary/webservices/browser/ws_set_availability.py
 src/polklibrary/webservices/browser/overrides/.gitkeep
 src/polklibrary/webservices/browser/static/.gitkeep
@@ -35,6 +36,8 @@ src/polklibrary/webservices/locales/update.sh
 src/polklibrary/webservices/profiles/default/browserlayer.xml
 src/polklibrary/webservices/profiles/default/metadata.xml
 src/polklibrary/webservices/profiles/default/polklibrarywebservices_default.txt
+src/polklibrary/webservices/profiles/default/types.xml
+src/polklibrary/webservices/profiles/default/types/resource_availability.xml
 src/polklibrary/webservices/profiles/uninstall/browserlayer.xml
 src/polklibrary/webservices/profiles/uninstall/polklibrarywebservices_uninstall.txt
 src/polklibrary/webservices/tests/__init__.py

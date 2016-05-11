@@ -13,7 +13,10 @@ class WSView(BrowserView):
     
     #@ram.cache(lambda *args: time() // (60 * 10))
     def __call__(self):
-        self._data = {}
+        self._data = {
+            'study_areas' : [],
+            'locations' : [],
+        }
         self.process()
         
         if self.request.form.get('alt','') == 'jsonp':
@@ -22,6 +25,16 @@ class WSView(BrowserView):
 
     def process(self):
         """ do main work here """
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
 
         
     @property
