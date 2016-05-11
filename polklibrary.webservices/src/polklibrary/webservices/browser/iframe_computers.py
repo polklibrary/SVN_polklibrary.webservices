@@ -9,7 +9,7 @@ class IframeComputersPlain(BrowserView):
     
     def __call__(self):
         self.request.response.setHeader('Access-Control-Allow-Origin', '*')
-        self.request.response.setHeader('Content-Security-Policy', 'frame-ancestors *')
+        self.request.response.setHeader('Content-Security-Policy', 'frame-ancestors uwosh.edu')
         return self.template()
     
     @property
