@@ -42,6 +42,7 @@ class WSView(BrowserView):
             'Description':brain.Description,
             'getURL':brain.getURL(),
             'getRemoteUrl':brain.getRemoteUrl,
+            'message_type': '',
             'message': '',
             'location': '',
             'resources':brain.resources,
@@ -50,6 +51,7 @@ class WSView(BrowserView):
         if brain.activated:
             obj = brain.getObject()
             if obj.message:
+                result['message_type'] = obj.activated
                 result['message'] = obj.message.output
         if brain.location:
             result['tutorial'] = brain.location
