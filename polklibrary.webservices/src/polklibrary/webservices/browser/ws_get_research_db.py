@@ -25,11 +25,7 @@ class WSView(BrowserView):
         if id:
             brains = api.content.find(portal_type='polklibrary.type.rdb.models.database', id=id, sort_on='sortable_title', sort_order='ascending')
             if brains:
-                brain = brains[0]
-                self._data = self.transform(brain)
-                obj = brain.getObject()
-                if obj.message:
-                    self._data['message'] = obj.message.output
+                self._data = self.transform(brains[0])
         else:
             brains = api.content.find(portal_type='polklibrary.type.rdb.models.database', sort_on='sortable_title', sort_order='ascending')
             for brain in brains:
@@ -49,6 +45,11 @@ class WSView(BrowserView):
             'location': '',
             'resources':brain.resources,
         }
+        
+        if brain.activated:
+            obj = brain.getObject()
+            if obj.message:
+                result['message'] = obj.message.output
         if brain.location:
             result['tutorial'] = brain.location
         return result
