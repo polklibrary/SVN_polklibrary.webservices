@@ -13,9 +13,10 @@ class WSView(BrowserView):
         self._data = {}
         self.process()
 
+        self.request.response.setHeader('Content-Type', 'application/json')
         if self.request.form.get('alt','') == 'jsonp':
             return self.request.form.get('callback','?') + '(' + json.dumps(self._data) + ')'
-        print self._data
+        
         return json.dumps(self._data)
 
 
