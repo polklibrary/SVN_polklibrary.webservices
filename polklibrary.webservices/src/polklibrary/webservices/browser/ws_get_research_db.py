@@ -44,7 +44,7 @@ class WSView(BrowserView):
             'getRemoteUrl':brain.getRemoteUrl,
             'message_type': '',
             'message': '',
-            'location': '',
+            'tutorial': '',
             'resources':brain.resources,
         }
         
