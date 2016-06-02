@@ -28,7 +28,8 @@ class WSView(BrowserView):
                 brain = brains[0]
                 self._data = self.transform(brain)
                 obj = brain.getObject()
-                self._data['message'] = obj.message.output
+                if obj.message:
+                    self._data['message'] = obj.message.output
         else:
             brains = api.content.find(portal_type='polklibrary.type.rdb.models.database', sort_on='sortable_title', sort_order='ascending')
             for brain in brains:
