@@ -53,8 +53,8 @@ class WSView(BrowserView):
             if obj.message:
                 result['message_type'] = obj.activated
                 result['message'] = obj.message.output
-        if brain.location:
-            result['tutorial'] = brain.location
+        if brain.reference:
+            result['tutorial'] = brain.reference
         return result
 
     @property
