@@ -19,7 +19,7 @@ class WSView(BrowserView):
             'librarian': {
                     'url': 'http://www.uwosh.edu/library/about/staff#reference',
                     'title': 'Reference Librarians',
-                    'image': 'http://www.uwosh.edu/library/images/ask-a-librarian-stacked.png'
+                    'image': 'http://www.uwosh.edu/library/images/ask-a-librarian-stacked.png',
                     'id': 'reference-librarians',
                     'information': {
                         'getOfficeRoom': 'Polk 101',
