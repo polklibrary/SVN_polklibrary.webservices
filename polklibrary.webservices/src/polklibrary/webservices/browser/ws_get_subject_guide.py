@@ -13,6 +13,8 @@ class WSView(BrowserView):
         self._data = {}
         self.process()
 
+        self.request.response.setHeader('Content-Type', 'application/json')
+        self.request.response.setHeader('Access-Control-Allow-Origin', '*')
         if self.request.form.get('alt','') == 'jsonp':
             return self.request.form.get('callback','?') + '(' + json.dumps(self._data) + ')'
         return json.dumps(self._data)
