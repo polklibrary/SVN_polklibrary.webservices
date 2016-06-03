@@ -82,11 +82,11 @@ class WSView(BrowserView):
         subj = self.get_subject_guide(org_code)
         if subj:
             self._data['subject_is_missing'] = 0
-            self._data['subject'] = {
+            self._data['subjects'].append({
                 'url':subj.getURL(),
                 'description':'',
                 'title':subj.Title,
-            }
+            })
 
             
             
