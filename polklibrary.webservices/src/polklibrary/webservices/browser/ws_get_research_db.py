@@ -47,6 +47,7 @@ class WSView(BrowserView):
             'message': '',
             'tutorial': '',
             'resources':brain.resources,
+            'disciplines':[],
         }
         
         if brain.activated:
@@ -56,6 +57,8 @@ class WSView(BrowserView):
                 result['message'] = obj.message.output
         if brain.reference:
             result['tutorial'] = brain.reference
+        if brain.disciplines:
+            result['disciplines'] = brain.disciplines
         return result
 
     @property
