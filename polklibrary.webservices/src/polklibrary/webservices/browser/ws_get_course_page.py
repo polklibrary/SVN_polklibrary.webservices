@@ -93,20 +93,73 @@ class WSView(BrowserView):
             
     def get_subject_guide(self, org_code):
     
-        subject_map = {
-            'HIST':'history',
-            'BIO':'biology',
-            'MUSIC':'music',
-            'ENG':'english',
             
-            # add new map here:  TARGET > SUBJECT_GUIDE_ID
-            # Find target keyword in org_code.  
-            # Example: org_code is UWOSH_0700_14W_NURSING_448_SEC091C_31421
-            # Map would be NURSING > nursing
-            # Example: org_code is UWOSH_0300_14W_HIST_238_SEC031C_49226
-            # Map would be HIST > history
-            # Example: org_code is UWOSH_0544_14W_POLI_238_SEC022C_25758
-            # Map would be POLI > political-science
+        # add new map here:  TARGET > SUBJECT_GUIDE_ID
+        # Find target keyword in org_code.  
+        # Example: org_code is UWOSH_0700_14W_NURSING_448_SEC091C_31421
+        # Map would be NURSING > nursing
+        # Example: org_code is UWOSH_0300_14W_HIST_238_SEC031C_49226
+        # Map would be HIST > history
+        # Example: org_code is UWOSH_0544_14W_POLI_238_SEC022C_25758
+        # Map would be POLI > political-science
+        subject_map = {
+            'AF AM ST':'interdisciplinary',
+            'ANTHRO':'social-sciences',
+            'ART':'fine-arts',
+            'ACCT':'business-economics',
+            'BIOLOGY':'stem',
+            'BUSINESS':'business-economics',
+            'CHEM':'stem',
+            'CHINESE':'english-foreign-languages',
+            'COMM':'communication-media',
+            'COMP SCI':'stem',
+            'CRIM JUS':'governmnet-law-human-services',
+            'ECON':'business-economics',
+            'ELEM ED':'education',
+            'EMBA':'business-economics',
+            'ENGLISH':'english-foreign-languages',
+            'ENV STDS':'sustainability',
+            'FERM':'',
+            'FINANCE':'business-economics',
+            'FRENCH':'english-foreign-languages',
+            'GEOG':'social-sciences',
+            'GEOLOGY':'stem',
+            'GERMAN':'english-foreign-languages',
+            'HISTORY':'history-philosophy-religion',
+            'HUMAN SV':'governmnet-law-human-services',
+            'INFO SYS':'business-economics',
+            'INTRNTL':'interdisciplinary',
+            'JAPANESE':'english-foreign-languages',
+            'JOURNAL':'communication-media',
+            'KINESLGY':'nursing-allied-health',
+            'LITERACY':'english-foreign-languages',
+            'MARKET':'business-economics',
+            'MATH':'stem',
+            'MED TECH':'nursing-allied-health',
+            'MIL SCI':'governmnet-law-human-services',
+            'MUSIC':'fine-arts',
+            'NURS':'nursing-allied-health',
+            'PHIL':'history-philosophy-religion',
+            'PHY ED':'education',
+            'PHYS/AST':'stem',
+            'POLI SCI':'social-sciences',
+            'PRF CNSL':'psychology-counseling',
+            'PSYCH':'psychology-counseling',
+            'PUB ADM':'governmnet-law-human-services',
+            'RTF':'communication-media',
+            'RELSTDS':'history-philosophy-religion',
+            'SCM':'business-economics',
+            'SEC ED':'education',
+            'SPANISH':'english-foreign-languages',
+            'SOC JUST':'interdisciplinary',
+            'SOC WORK':'social-sciences',
+            'SOC':'social-sciences',
+            'SPEC ED':'education',
+            'THEATRE':'fine-arts',
+            'URB PLNG':'social-sciences',
+            'WBIS':'english-foreign-languages',
+            'WG STDS':'interdisciplinary',
+
         }
     
         id = '123_TEST'

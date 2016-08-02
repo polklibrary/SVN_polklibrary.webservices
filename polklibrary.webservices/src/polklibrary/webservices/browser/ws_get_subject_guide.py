@@ -2,13 +2,13 @@ from plone import api
 from plone.memoize import ram
 from Products.Five import BrowserView
 
-import json
+import json,time
 
 class WSView(BrowserView):
 
     _data = {}
 
-    #@ram.cache(lambda *args: time() // (60 * 10))
+    @ram.cache(lambda *args: time.time() // (60 * 2))
     def __call__(self):
         self._data = {}
         self.process()

@@ -5,13 +5,13 @@ from Products.Five import BrowserView
 from sqlalchemy import create_engine
 from sqlalchemy.sql import select,update,functions,or_,and_
 
-import json,pymysql,datetime
+import json,pymysql,datetime, time
 
 class WSView(BrowserView):
 
     _data = {}
     
-    #@ram.cache(lambda *args: time() // (60 * 10))
+    @ram.cache(lambda *args: time.time() // (60))
     def __call__(self):
         self._data = {
             "cached": str(datetime.datetime.now()),
