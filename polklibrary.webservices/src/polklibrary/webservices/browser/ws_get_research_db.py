@@ -14,7 +14,7 @@ class WSView(BrowserView):
         self.process()
 
         self.request.response.setHeader('ETag', md5.new(str(self._data)).hexdigest())
-        self.request.response.setHeader('Cache-Control', 'max-age=3600, public, must-revalidate')
+        self.request.response.setHeader('Cache-Control', 'max-age=60, s-maxage=60, public, must-revalidate')
         self.request.response.setHeader('Vary', 'Accept-Encoding')
         self.request.response.setHeader('Content-Type', 'application/json')
         self.request.response.setHeader('Access-Control-Allow-Origin', '*')
