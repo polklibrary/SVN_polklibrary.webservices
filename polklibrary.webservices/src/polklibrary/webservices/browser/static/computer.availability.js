@@ -290,10 +290,10 @@ var setup_computer_availability = function() {
             //computers and circulation items
             try{ emc_computers = data.locations[0]; } catch(e){ } 
             try{ emc_macs = data.locations[1]; } catch(e){ } 
-            try{ polk101_computers = data.locations[2]; } catch(e){ } 
-            try{ polk101_macs = data.locations[3]; } catch(e){ } 
-            try{ lab_computers = data.locations[4]; } catch(e){ } 
-            try{ lab_macs = data.locations[5]; } catch(e){ } 
+            try{ lab_computers = data.locations[2]; } catch(e){ } 
+            try{ lab_macs = data.locations[3]; } catch(e){ } 
+            try{ polk101_computers = data.locations[4]; } catch(e){ } 
+            try{ polk101_macs = data.locations[5]; } catch(e){ } 
             try{ floor_two_north_computers = data.locations[6]; } catch(e){ } 
             try{ floor_two_south_computers = data.locations[7]; } catch(e){ } 
             try{ floor_three_north_computers = data.locations[8]; } catch(e){ } 
