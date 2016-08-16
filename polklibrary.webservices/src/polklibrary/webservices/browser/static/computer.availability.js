@@ -288,19 +288,30 @@ var setup_computer_availability = function() {
         $.getJSON( "http://www.uwosh.edu/library/ws/getAvailableResources?v=2&alt=jsonp&callback=?", function(data) {
             
             //computers and circulation items
-            polk101_computers = data.locations[0];
-            floor_two_north_computers = data.locations[1];
-            floor_three_south_computers = data.locations[2];
-            floor_three_north_computers = data.locations[3];
-            emc_computers = data.locations[4];
-            lab_computers = data.locations[5];
-            floor_two_south_computers = data.locations[6];
-            polk101_macs = data.locations[7];
-            emc_macs = data.locations[8];
-            lab_macs = data.locations[9];
+            try{ emc_computers = data.locations[0]; } catch(e){ } 
+            try{ emc_macs = data.locations[1]; } catch(e){ } 
+            try{ polk101_computers = data.locations[2]; } catch(e){ } 
+            try{ polk101_macs = data.locations[3]; } catch(e){ } 
+            try{ lab_computers = data.locations[4]; } catch(e){ } 
+            try{ lab_macs = data.locations[5]; } catch(e){ } 
+            try{ floor_two_north_computers = data.locations[6]; } catch(e){ } 
+            try{ floor_two_south_computers = data.locations[7]; } catch(e){ } 
+            try{ floor_three_north_computers = data.locations[8]; } catch(e){ } 
+            try{ floor_three_south_computers = data.locations[9]; } catch(e){ } 
+            
+            
+
+            //floor_two_north_computers = data.locations[1];
+            //floor_three_south_computers = data.locations[2];
+            //floor_three_north_computers = data.locations[3];
+            //emc_computers = data.locations[4];
+            //lab_computers = data.locations[5];
+            //floor_two_south_computers = data.locations[6];
+            //emc_macs = data.locations[8];
+            //lab_macs = data.locations[9];
             //laptops = data.locations[10];
-            scientific_calcs = data.locations[11];
-            graphing_calcs = data.locations[12];
+            //scientific_calcs = data.locations[11];
+            //graphing_calcs = data.locations[12];
             
             //study rooms
             for(room in data.study_areas){
