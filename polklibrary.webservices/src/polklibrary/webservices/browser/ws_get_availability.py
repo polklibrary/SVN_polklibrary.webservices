@@ -11,7 +11,6 @@ class WSView(BrowserView):
 
     _data = {}
     
-    @ram.cache(lambda *args: time.time() // (60))
     def __call__(self):
         self._data = {
             "cached": str(datetime.datetime.now()),
@@ -26,6 +25,7 @@ class WSView(BrowserView):
             return self.request.form.get('callback','?') + '(' + json.dumps(self._data) + ')'
         return json.dumps(self._data)
 
+    @ram.cache(lambda *args: time.time() // (60))
     def process(self):
         """ do main work here """
         context = api.content.get(path='/library/ws/resources')
