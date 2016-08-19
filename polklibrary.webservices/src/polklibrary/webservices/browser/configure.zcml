@@ -12,7 +12,13 @@
         permission="zope2.View"
         />
         
-    
+    <browser:page
+        for="*"
+        name="patch_emclinks"
+        class=".patch_emclinks.WSView"
+        permission="zope2.View"
+        />
+        
     
     <browser:page
         for="*"
