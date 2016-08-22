@@ -47,8 +47,8 @@ class WSView(BrowserView):
                     obj.text = RichTextValue(text, 'text/html', 'text/html')
                     obj.reindexObject()
                     self._data['pass'].append(document.getURL())
-                except:
-                    self._data['fail'].append(document.getURL())
+                except Exception as e:
+                    self._data['fail'].append(document.getURL() + ' : ' + str(e))
                 
 
         
