@@ -43,7 +43,7 @@ class WSView(BrowserView):
                     text = obj.text.raw
                     for k,v in self.testlinks.items():
                         text = text.replace(k,v)
-                    print text
+                        text = text.encode('ascii', 'ignore')
                     obj.text = RichTextValue(text, 'text/html', 'text/html')
                     obj.reindexObject()
                     self._data['pass'].append(document.getURL())
