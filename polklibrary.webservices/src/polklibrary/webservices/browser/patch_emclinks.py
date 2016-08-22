@@ -19,7 +19,10 @@ class WSView(BrowserView):
 
     #@ram.cache(lambda *args: time() // (60 * 10))
     def __call__(self):
-        self._data = {}
+        self._data = {
+            'pass' : [],
+            'fail' : [],
+        }
         self.process()
         
         self.request.response.setHeader('Content-Type', 'application/json')
