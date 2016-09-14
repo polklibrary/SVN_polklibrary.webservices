@@ -24,16 +24,23 @@ class WSView(BrowserView):
     def process(self):
         """ do main work here """
         id = self.request.form.get('id', None)
+        brains = self.get_cached_brains(id)
         if id:
-            brains = api.content.find(portal_type='polklibrary.type.rdb.models.database', id=id, sort_on='sortable_title', sort_order='ascending')
             if brains:
                 self._data = self.transform(brains[0])
         else:
-            brains = api.content.find(portal_type='polklibrary.type.rdb.models.database', sort_on='sortable_title', sort_order='ascending')
             for brain in brains:
                 self._data[brain.getId] = self.transform(brain)
             self._data = sorted(list(self._data.values()), key=lambda k: k['Title'])
             
+
+    @ram.cache(lambda *args: time.time() // (60 * 2))
+    def get_cached_brains(self, id):
+        if id:
+            return api.content.find(portal_type='polklibrary.type.rdb.models.database', id=id, sort_on='sortable_title', sort_order='ascending')
+        else:
+            return api.content.find(portal_type='polklibrary.type.rdb.models.database', sort_on='sortable_title', sort_order='ascending')
+    
            
     def transform(self, brain):
         result = {
