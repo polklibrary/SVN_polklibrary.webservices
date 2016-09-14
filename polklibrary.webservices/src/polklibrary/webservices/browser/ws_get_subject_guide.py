@@ -21,7 +21,6 @@ class WSView(BrowserView):
         return json.dumps(self._data)
 
 
-    @ram.cache(lambda *args: time.time() // (60 * 2))
     def process(self):
         """ do main work here """
         brains = api.content.find(portal_type='polklibrary.type.subjects.models.subject', sort_on='sortable_title', sort_order='ascending')
