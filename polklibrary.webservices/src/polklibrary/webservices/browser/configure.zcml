@@ -19,7 +19,13 @@
         permission="zope2.View"
         />
         
-    
+    <browser:page
+        for="*"
+        name="deep_search_text"
+        class=".ws_find.WSView"
+        permission="zope2.View"
+        />
+        
     <browser:page
         for="*"
         name="getResearchDatabase"
