@@ -31,7 +31,7 @@ class WSView(BrowserView):
         else:
             for brain in brains:
                 self._data[brain.getId] = self.transform(brain)
-            self._data = sorted(list(self._data.values()), key=lambda k: k['Title'])
+            self._data = sorted(list(self._data.values()), key=lambda k: k['Title'].lower())
             
 
     @ram.cache(lambda *args: time.time() // (60 * 2))
