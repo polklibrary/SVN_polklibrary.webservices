@@ -28,6 +28,13 @@
         
     <browser:page
         for="*"
+        name="getComputers"
+        class=".ws_get_computers.WSView"
+        permission="zope2.View"
+        />
+        
+    <browser:page
+        for="*"
         name="getResearchDatabase"
         class=".ws_get_research_db.WSView"
         permission="zope2.View"
