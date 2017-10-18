@@ -28,6 +28,7 @@ class WSView(BrowserView):
                 'emc': self.call_keyserver('http://keyserver.uwosh.edu/public/maps.html?ptype=divn&pdata=0x0000FFF2&pname=EMC'),
                 'groupstudy': self.call_keyserver('http://keyserver.uwosh.edu/public/maps.html?ptype=divn&pdata=0x0000FFD0&pname=Group%20Study%20Rooms'),
                 'checkout': self.call_keyserver('http://keyserver.uwosh.edu/public/maps.html?ptype=divn&pdata=0x0000FFBA&pname=Checkout'),
+                'polk118': self.call_keyserver('http://keyserver.uwosh.edu/public/maps.html?ptype=divn&pdata=0x0000FFE6&pname=Polk%20Lab'),
             }
         }
     
