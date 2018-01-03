@@ -16,7 +16,7 @@ class WSView(BrowserView):
         return json.dumps(data)
 
         
-    @ram.cache(lambda *args: time.time() // (CACHED_TIME))
+    #@ram.cache(lambda *args: time.time() // (CACHED_TIME))
     def service(self):
         data = {
             'cached': str(datetime.datetime.now()),
@@ -36,16 +36,16 @@ class WSView(BrowserView):
         
     def call_keyserver(self, url):
         request = requests.get(url, verify=False, timeout=15)
-        soup = BeautifulSoup(request.text)
+        soup = BeautifulSoup(request.text)        
         divs = soup.findAll('div', {'class': lambda x: x and 'av-comp' in x})
 
         computers = {}
         for div in divs:
-            if 'used' in div['class']:
-                computers[div['data-info-name']] = 0;
-            else:
-                computers[div['data-info-name']] = 1;
-            
+            if 'data-info-name' in str(div) and 'class' in str(div):
+                if 'used' in div['class']:
+                    computers[div['data-info-name']] = 0;
+                else:
+                    computers[div['data-info-name']] = 1;
         return computers
 
         
