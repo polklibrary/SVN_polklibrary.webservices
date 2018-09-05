@@ -16,7 +16,7 @@ class WSView(BrowserView):
         return json.dumps(data)
 
         
-    #@ram.cache(lambda *args: time.time() // (CACHED_TIME))
+    @ram.cache(lambda *args: time.time() // (CACHED_TIME))
     def service(self):
         data = {
             'cached': str(datetime.datetime.now()),

@@ -114,6 +114,8 @@ class WSView(BrowserView):
             'COMM':'communication-media',
             'COMP SCI':'stem',
             'CRIM JUS':'governmnet-law-human-services',
+            'CRIMJUS':'governmnet-law-human-services',
+            'CRIM':'governmnet-law-human-services',
             'ECON':'business-economics',
             'ELEM ED':'education',
             'EMBA':'business-economics',
@@ -159,7 +161,6 @@ class WSView(BrowserView):
             'URB PLNG':'social-sciences',
             'WBIS':'english-foreign-languages',
             'WG STDS':'interdisciplinary',
-
         }
     
         id = '123_TEST'
