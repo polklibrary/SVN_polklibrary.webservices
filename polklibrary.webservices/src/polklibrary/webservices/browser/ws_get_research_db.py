@@ -24,23 +24,27 @@ class WSView(BrowserView):
     def process(self):
         """ do main work here """
         id = self.request.form.get('id', None)
-        brains = self.get_cached_brains(id)
+        results = self.get_cached_results(id)
+        
         if id:
-            if brains:
-                self._data = self.transform(brains[0])
+            if results:
+                self._data = results[0]
         else:
-            for brain in brains:
-                self._data[brain.getId] = self.transform(brain)
+            for result in results:
+                self._data[result['id']] = result
             self._data = sorted(list(self._data.values()), key=lambda k: k['Title'].lower())
             
 
     @ram.cache(lambda *args: time.time() // (60 * 2))
-    def get_cached_brains(self, id):
+    def get_cached_results(self, id):
+        results = []
         if id:
-            return api.content.find(portal_type='polklibrary.type.rdb.models.database', id=id, sort_on='sortable_title', sort_order='ascending')
+            brains = api.content.find(portal_type='polklibrary.type.rdb.models.database', id=id, sort_on='sortable_title', sort_order='ascending')
         else:
-            return api.content.find(portal_type='polklibrary.type.rdb.models.database', sort_on='sortable_title', sort_order='ascending')
-    
+            brains = api.content.find(portal_type='polklibrary.type.rdb.models.database', sort_on='sortable_title', sort_order='ascending')
+        for brain in brains:
+            results.append(self.transform(brain))
+        return results
            
     def transform(self, brain):
         result = {
