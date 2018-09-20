@@ -4,6 +4,10 @@ from Products.Five import BrowserView
 
 import json,time,md5
 
+
+def _cache_key(method, self):
+    return (self.portal.id, time.time() // (60 * 2))
+
 class WSView(BrowserView):
 
     _data = {}
@@ -34,7 +38,7 @@ class WSView(BrowserView):
             self._data = sorted(list(self._data.values()), key=lambda k: k['Title'])
 
             
-    @ram.cache(lambda *args: time.time() // (60 * 2))
+    @ram.cache(_cache_key)
     def get_cached_results(self):
         results = []
         brains = api.content.find(portal_type='polklibrary.type.subjects.models.subject', sort_on='sortable_title', sort_order='ascending')
