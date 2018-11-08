@@ -22,13 +22,13 @@ class WSView(BrowserView):
             'cached': str(datetime.datetime.now()),
             'cached_time': CACHED_TIME,
             'locations' : {
-                'reference': self.call_keyserver('http://keyserver.uwosh.edu/public/maps.html?ptype=divn&pdata=0x0000FFE5&pname=Reference'),
-                'catalog': self.call_keyserver('http://keyserver.uwosh.edu/public/maps.html?ptype=divn&pdata=0x0000FFFC&pname=Catalog'),
-                'govdocs': self.call_keyserver('http://keyserver.uwosh.edu/public/maps.html?ptype=divn&pdata=0x0000FFEC&pname=Gov%20Docs'),
-                'emc': self.call_keyserver('http://keyserver.uwosh.edu/public/maps.html?ptype=divn&pdata=0x0000FFF2&pname=EMC'),
-                'groupstudy': self.call_keyserver('http://keyserver.uwosh.edu/public/maps.html?ptype=divn&pdata=0x0000FFD0&pname=Group%20Study%20Rooms'),
-                'checkout': self.call_keyserver('http://keyserver.uwosh.edu/public/maps.html?ptype=divn&pdata=0x0000FFBA&pname=Checkout'),
-                'polk118': self.call_keyserver('http://keyserver.uwosh.edu/public/maps.html?ptype=divn&pdata=0x0000FFE6&pname=Polk%20Lab'),
+                'reference': self.call_keyserver('https://keyserver.uwosh.edu/maps/std/2286e8e2639f6543881fdf00f64ce78c'),
+                'catalog': self.call_keyserver('https://keyserver.uwosh.edu/maps/std/3969fe58fa01f342be8d2c11980f4f7b'),
+                'govdocs': self.call_keyserver('https://keyserver.uwosh.edu/maps/std/5e4d5568a458c74b80f785599b426798'),
+                'emc': self.call_keyserver('https://keyserver.uwosh.edu/maps/std/b3c2ee7716db924096ea02446d9ba030'),
+                'groupstudy': self.call_keyserver('https://keyserver.uwosh.edu/maps/std/3f975ab97682994ab2d88c57946f6d62'),
+                'checkout': self.call_keyserver('https://keyserver.uwosh.edu/maps/std/75df35928d188c45bb8f37f0ad425599'),
+                'polk118': self.call_keyserver('https://keyserver.uwosh.edu/maps/std/35001ade90506b409e27b3f2357b5e40'),
             }
         }
     
