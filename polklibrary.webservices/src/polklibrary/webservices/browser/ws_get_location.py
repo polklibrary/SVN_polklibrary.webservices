@@ -28,19 +28,19 @@ class WSView(BrowserView):
         ip = self.get_ip()
         
         data = {
-            'ip' : ip,
+            'ip' : str(ip),
         }
         
-        if self.is_ip_in_range(ip, "141.233.0.0", "141.233.255.255"):
-            data['location'] = self.OSHKOSH_LOCATION
-        elif self.is_ip_in_range(ip, "0", "1"):
-            data['location'] = self.FOND_LOCATION
-        elif self.is_ip_in_range(ip, "0", "1"):
-            data['location'] = self.FOX_LOCATION
-        elif self.is_ip_in_range(ip, "10.0.0.0", "10.0.255.255"):
-            data['location'] = self.TEST_LOCATION
-        else:
-            data['location'] = self.NO_LOCATION
+        # if self.is_ip_in_range(ip, "141.233.0.0", "141.233.255.255"):
+            # data['location'] = self.OSHKOSH_LOCATION
+        # elif self.is_ip_in_range(ip, "0", "1"):
+            # data['location'] = self.FOND_LOCATION
+        # elif self.is_ip_in_range(ip, "0", "1"):
+            # data['location'] = self.FOX_LOCATION
+        # elif self.is_ip_in_range(ip, "10.0.0.0", "10.0.255.255"):
+            # data['location'] = self.TEST_LOCATION
+        # else:
+            # data['location'] = self.NO_LOCATION
         
         return data
 
@@ -70,6 +70,7 @@ class WSView(BrowserView):
             # Unit test code?
             ip = None
 
+            
         return ip
             
         
