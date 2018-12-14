@@ -26,7 +26,6 @@ class WSView(BrowserView):
     #@ram.cache(lambda *args: time.time() // (CACHED_TIME))
     def service(self):
         ip = self.get_ip()
-        print ip
         
         data = {
             'ip' : ip,
