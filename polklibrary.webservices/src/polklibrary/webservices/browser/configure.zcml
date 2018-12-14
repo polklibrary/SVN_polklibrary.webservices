@@ -83,7 +83,14 @@
         />
             
 
-    
+    <browser:page
+        for="*"
+        name="getLocation"
+        class=".ws_get_location.WSView"
+        permission="zope2.View"
+        />
+            
+
     
     
     
