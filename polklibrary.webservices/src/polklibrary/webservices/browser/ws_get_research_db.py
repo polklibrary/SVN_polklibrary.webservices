@@ -63,6 +63,7 @@ class WSView(BrowserView):
             'tutorial': '',
             'resources':brain.resources,
             'disciplines':[],
+            'state':brain.state,
         }
         
         if brain.activated:

@@ -33,9 +33,9 @@ class WSView(BrowserView):
         
         if self.is_ip_in_range(ip, "141.233.0.0", "141.233.255.255"):
             data['location'] = self.OSHKOSH_LOCATION
-        elif self.is_ip_in_range(ip, "0", "1"):
+        elif self.is_ip_in_range(ip, "143.235.152.0", "143.235.159.255"):
             data['location'] = self.FOND_LOCATION
-        elif self.is_ip_in_range(ip, "0", "1"):
+        elif self.is_ip_in_range(ip, "143.235.160.0", "143.235.167.255"):
             data['location'] = self.FOX_LOCATION
         elif self.is_ip_in_range(ip, "10.0.0.0", "10.0.255.255"):
             data['location'] = self.TEST_LOCATION
