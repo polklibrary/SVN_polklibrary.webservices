@@ -63,7 +63,7 @@ class WSView(BrowserView):
             'tutorial': '',
             'resources':brain.resources,
             'disciplines':[],
-            'state':False,
+            'state':True,
         }
         
         if brain.activated:
@@ -75,8 +75,8 @@ class WSView(BrowserView):
             result['tutorial'] = brain.reference
         if brain.disciplines:
             result['disciplines'] = brain.disciplines
-        if brain.state == u"On" or brain.state == "On":
-            result['state'] = True
+        if brain.state == u"Off" or brain.state == "Off":
+            result['state'] = False
             
         return result
 
