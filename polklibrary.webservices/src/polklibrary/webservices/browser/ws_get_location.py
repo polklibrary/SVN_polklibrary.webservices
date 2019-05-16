@@ -16,6 +16,7 @@ class WSView(BrowserView):
 
     def __call__(self):
         data = self.service()
+        self.request.response.setHeader('Cache-Control', 'no-cache, no-store')
         self.request.response.setHeader('Content-Type', 'application/json')
         self.request.response.setHeader('Access-Control-Allow-Origin', '*')
         if self.request.form.get('alt','') == 'jsonp':
@@ -23,7 +24,6 @@ class WSView(BrowserView):
         return json.dumps(data)
 
         
-    #@ram.cache(lambda *args: time.time() // (CACHED_TIME))
     def service(self):
         ip = self.get_ip()
         
@@ -31,12 +31,23 @@ class WSView(BrowserView):
             'ip' : str(ip),
         }
         
-        if self.is_ip_in_range(ip, "141.233.0.0", "141.233.255.255"):
-            data['location'] = self.OSHKOSH_LOCATION
-        elif self.is_ip_in_range(ip, "143.235.152.0", "143.235.159.255"):
-            data['location'] = self.FOND_LOCATION
-        elif self.is_ip_in_range(ip, "143.235.160.0", "143.235.167.255"):
+        if self.is_ip_in_range(ip, "141.233.148.1", "141.233.151.254"): # users
             data['location'] = self.FOX_LOCATION
+        elif self.is_ip_in_range(ip, "141.233.170.1", "141.233.171.254"): # classrooms/labs
+            data['location'] = self.FOX_LOCATION
+        elif self.is_ip_in_range(ip, "143.235.160.0", "143.235.167.255"): # old ip range
+            data['location'] = self.FOX_LOCATION
+        
+        elif self.is_ip_in_range(ip, "141.233.152.1", "141.233.155.254"): # users
+            data['location'] = self.FOND_LOCATION
+        elif self.is_ip_in_range(ip, "141.233.172.1", "141.233.173.254"): # classrooms/labs
+            data['location'] = self.FOND_LOCATION
+        elif self.is_ip_in_range(ip, "143.235.152.0", "143.235.159.255"): # old ip range
+            data['location'] = self.FOND_LOCATION
+            
+        elif self.is_ip_in_range(ip, "141.233.0.0", "141.233.255.255"): # all uwo
+            data['location'] = self.OSHKOSH_LOCATION
+
         elif self.is_ip_in_range(ip, "10.0.0.0", "10.0.255.255"):
             data['location'] = self.TEST_LOCATION
         else:

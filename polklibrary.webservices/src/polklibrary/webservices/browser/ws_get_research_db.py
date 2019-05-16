@@ -64,6 +64,7 @@ class WSView(BrowserView):
             'resources':brain.resources,
             'disciplines':[],
             'state':True,
+            'exclude_from_nav':brain.exclude_from_nav,
         }
         
         if brain.activated:
