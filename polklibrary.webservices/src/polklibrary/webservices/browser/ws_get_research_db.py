@@ -63,9 +63,12 @@ class WSView(BrowserView):
             'tutorial': '',
             'resources':brain.resources,
             'disciplines':[],
-            'state':True,
-            'exclude_from_nav':brain.exclude_from_nav,
         }
+        
+        excluded = False
+        if brain.exclude_from_nav == True:
+            excluded = True
+        result['exclude_from_nav'] = excluded
         
         if brain.activated:
             obj = brain.getObject()
@@ -76,8 +79,7 @@ class WSView(BrowserView):
             result['tutorial'] = brain.reference
         if brain.disciplines:
             result['disciplines'] = brain.disciplines
-        if brain.state == u"Off" or brain.state == "Off":
-            result['state'] = False
+
             
         return result
 
