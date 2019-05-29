@@ -18,6 +18,14 @@
         class=".patch_emclinks.WSView"
         permission="zope2.View"
         />
+
+    <browser:page
+        for="*"
+        name="patch_resolveuid.js"
+        class=".patch_resolveuid.WSView"
+        permission="zope2.View"
+        />
+        
         
     <browser:page
         for="*"

@@ -47,12 +47,17 @@ class WSView(BrowserView):
         return results
         
     def transform(self, brain):
+        excluded = False
+        if brain.exclude_from_nav == True:
+            excluded = True
+        
         return {
             'id':brain.getId,
             'getId':brain.getId,
             'Title':brain.Title,
             'Description':brain.Description,
-            'getURL':brain.getURL()
+            'getURL':brain.getURL(),
+            'exclude_from_nav':excluded,
         }
 
 

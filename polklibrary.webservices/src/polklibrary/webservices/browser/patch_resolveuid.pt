@@ -1,0 +1,1 @@
+var UIDs = ${view/get_cached_results};
