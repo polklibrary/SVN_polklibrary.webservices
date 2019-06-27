@@ -3,7 +3,7 @@ from Products.Five import BrowserView
 from BeautifulSoup import BeautifulSoup
 import json, datetime, time, requests, re
 
-CACHED_TIME = 60
+CACHED_TIME = 60 * 2
 
 class WSView(BrowserView):
 
