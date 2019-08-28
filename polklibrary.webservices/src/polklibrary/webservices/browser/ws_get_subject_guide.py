@@ -41,7 +41,7 @@ class WSView(BrowserView):
     @ram.cache(_cache_key)
     def get_cached_results(self):
         results = []
-        brains = api.content.find(portal_type='polklibrary.type.subjects.models.subject', sort_on='sortable_title', sort_order='ascending')
+        brains = api.content.find(Subject=('ShowOnSubjectDropDown'), sort_on='sortable_title', sort_order='ascending')
         for brain in brains:
             results.append(self.transform(brain))
         return results

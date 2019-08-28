@@ -46,8 +46,6 @@ setup(
         'plone.api',
         'setuptools',
         'z3c.jbot',
-        'sqlalchemy==0.6.6',
-        'pymysql==0.3',
     ],
     extras_require={
         'test': [
