@@ -43,6 +43,13 @@
         
     <browser:page
         for="*"
+        name="getComputersNoCache"
+        class=".ws_get_computers_nc.WSView"
+        permission="zope2.View"
+        />
+        
+    <browser:page
+        for="*"
         name="getResearchDatabase"
         class=".ws_get_research_db.WSView"
         permission="zope2.View"
