@@ -24,6 +24,7 @@ class WSView(BrowserView):
         return data
         
     def call_keyserver(self, url):
+        url = url + '?nocache=' + str(int(time.time()))
         request = requests.get(url, verify=False, timeout=15)
         soup = BeautifulSoup(request.text)        
         divs = soup.findAll('div', {'class': lambda x: x and 'av-comp' in x})
