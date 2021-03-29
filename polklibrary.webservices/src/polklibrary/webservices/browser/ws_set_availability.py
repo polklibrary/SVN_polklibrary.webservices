@@ -26,8 +26,8 @@ class WSView(BrowserView):
         context = api.content.get(path='/library/ws/resources')
         
         computer_id = self.request.form.get('computerId','')
-        print computer_id
-        print idnormalizer.normalize(computer_id)
+        #print(computer_id)
+        #print(idnormalizer.normalize(computer_id))
         available = True 
         if int(self.request.form.get('status', -1)) <= 0:
             available = False

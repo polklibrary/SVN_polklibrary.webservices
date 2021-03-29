@@ -2,7 +2,7 @@ from plone import api
 from plone.memoize import ram
 from Products.Five import BrowserView
 
-import json,time,md5
+import json,time,hashlib
 
             
 def _cache_key(method, self, id):
@@ -16,7 +16,7 @@ class WSView(BrowserView):
         self._data = {}
         self.process()
 
-        self.request.response.setHeader('ETag', md5.new(str(self._data)).hexdigest())
+        self.request.response.setHeader('ETag', hashlib.md5(str(self._data).encode('utf-8')).hexdigest())
         self.request.response.setHeader('Cache-Control', 'max-age=60, s-maxage=60, public, must-revalidate')
         self.request.response.setHeader('Content-Type', 'application/json')
         self.request.response.setHeader('Access-Control-Allow-Origin', '*')

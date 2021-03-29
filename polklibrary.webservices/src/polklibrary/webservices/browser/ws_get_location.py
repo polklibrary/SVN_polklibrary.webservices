@@ -1,6 +1,6 @@
 from plone.memoize import ram
 from Products.Five import BrowserView
-from BeautifulSoup import BeautifulSoup
+from bs4 import BeautifulSoup
 import json, datetime, time, requests, re
 
 CACHED_TIME = 60

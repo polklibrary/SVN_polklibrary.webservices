@@ -2,7 +2,7 @@ from plone import api
 from plone.memoize import ram
 from Products.Five import BrowserView
 
-import json,time,md5
+import json,time
 
 class WSView(BrowserView):
 

@@ -1,6 +1,6 @@
 from plone.memoize import ram
 from Products.Five import BrowserView
-from BeautifulSoup import BeautifulSoup
+from bs4  import BeautifulSoup
 import json, datetime, time, requests, re
 
 class WSView(BrowserView):
@@ -31,7 +31,7 @@ class WSView(BrowserView):
         computers = {}
         elements = soup.findAll('div', {'class': lambda x: x and 'av-comp' in x})
         if elements: # DIV FINDER
-            #print "DIV FINDER "  + str(len(elements))
+            #print("DIV FINDER "  + str(len(elements)))
             for elem in elements:
                 if 'data-info-name' in str(elem) and 'class' in str(elem):
                     if 'used' in elem['class']:
@@ -41,7 +41,7 @@ class WSView(BrowserView):
                         
         else: # TR FINDER
             elements = soup.findAll('tr', {'class': lambda x: x and 'av-comp' in x})
-            #print "TR FINDER " + str(len(elements))
+            #print("TR FINDER " + str(len(elements)))
             for elem in elements:
                 if 'data-info-id' in str(elem) and 'class' in str(elem):
                     innerelem = elem.find('span', {'class':'av-name'})

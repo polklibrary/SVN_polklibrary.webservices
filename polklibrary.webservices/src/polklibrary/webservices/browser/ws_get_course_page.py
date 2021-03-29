@@ -173,7 +173,7 @@ class WSView(BrowserView):
             brains = api.content.find(portal_type='polklibrary.type.subjects.models.subject', id=id)
             return brains[0]
         except Exception as e:
-            print "ERROR: "  + str(e)
+            #print("ERROR: "  + str(e))
             return None
 
     def get_course_page(self, org_unit):
@@ -181,7 +181,7 @@ class WSView(BrowserView):
             brains = api.content.find(portal_type='polklibrary.type.coursepages.models.page', resources=org_unit)
             return brains[0]
         except Exception as e:
-            print "ERROR: "  + str(e)
+            #print("ERROR: "  + str(e))
             return None
 
         
