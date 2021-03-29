@@ -32,6 +32,7 @@ src/polklibrary/webservices/browser/ws_find.py
 src/polklibrary/webservices/browser/ws_get_analytic_group.py
 src/polklibrary/webservices/browser/ws_get_availability.py
 src/polklibrary/webservices/browser/ws_get_computers.py
+src/polklibrary/webservices/browser/ws_get_computers_nc.py
 src/polklibrary/webservices/browser/ws_get_course_page.py
 src/polklibrary/webservices/browser/ws_get_location.py
 src/polklibrary/webservices/browser/ws_get_research_db.py
