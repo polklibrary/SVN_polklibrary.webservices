@@ -40,6 +40,8 @@ class WSView(BrowserView):
         text = text.replace('http://uw-primo.hosted.exlibrisgroup.com/permalink/','https://wisconsin-uwosh.primo.exlibrisgroup.com/permalink/')
         text = text.replace('http://uw-primo.hosted.exlibrisgroup.com/','https://wisconsin-uwosh.primo.exlibrisgroup.com/')
         
+        text = text.replace('https://wisconsin.hosted.exlibrisgroup.com/permalink/','https://wisconsin-uwosh.primo.exlibrisgroup.com/permalink/')
+        text = text.replace('https://wisconsin.hosted.exlibrisgroup.com/','https://wisconsin-uwosh.primo.exlibrisgroup.com/')
         text = text.replace('http://wisconsin.hosted.exlibrisgroup.com/permalink/','https://wisconsin-uwosh.primo.exlibrisgroup.com/permalink/')
         text = text.replace('http://wisconsin.hosted.exlibrisgroup.com/','https://wisconsin-uwosh.primo.exlibrisgroup.com/')
         
