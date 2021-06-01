@@ -5,6 +5,12 @@
     i18n_domain="polklibrary.webservices">
 
 
+    <browser:page
+        for="*"
+        name="healthCheck"
+        class=".ws_healthcheck.WSView"
+        permission="zope2.View"
+        />
 
     <browser:page
         for="*"
