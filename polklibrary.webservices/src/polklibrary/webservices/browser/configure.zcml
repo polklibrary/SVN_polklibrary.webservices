@@ -38,7 +38,7 @@
         for="*"
         name="deep_search"
         class=".ws_find.WSView"
-        permission="zope2.View"
+        permission="cmf.ManagePortal"
         />
         
     <browser:page
