@@ -36,7 +36,7 @@
         
     <browser:page
         for="*"
-        name="deep_search_text"
+        name="deep_search"
         class=".ws_find.WSView"
         permission="zope2.View"
         />
