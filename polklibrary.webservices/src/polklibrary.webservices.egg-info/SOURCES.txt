@@ -38,6 +38,7 @@ src/polklibrary/webservices/browser/ws_get_location.py
 src/polklibrary/webservices/browser/ws_get_research_db.py
 src/polklibrary/webservices/browser/ws_get_resources.py
 src/polklibrary/webservices/browser/ws_get_subject_guide.py
+src/polklibrary/webservices/browser/ws_healthcheck.py
 src/polklibrary/webservices/browser/ws_set_availability.py
 src/polklibrary/webservices/browser/overrides/.gitkeep
 src/polklibrary/webservices/browser/static/.gitkeep

@@ -16,8 +16,6 @@ class WSView(BrowserView):
         self._data = {}
         self.process()
 
-        self.request.response.setHeader('ETag', hashlib.md5(str(self._data).encode('utf-8')).hexdigest())
-        self.request.response.setHeader('Cache-Control', 'max-age=60, s-maxage=60, public, must-revalidate')
         self.request.response.setHeader('Content-Type', 'application/json')
         self.request.response.setHeader('Access-Control-Allow-Origin', '*')
         if self.request.form.get('alt','') == 'jsonp':
