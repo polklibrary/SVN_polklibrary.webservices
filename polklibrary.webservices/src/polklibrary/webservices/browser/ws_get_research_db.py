@@ -5,6 +5,9 @@ from Products.Five import BrowserView
 import json,time,hashlib
 
             
+def _twominutes_cachekey(method, self):
+    return (self.request.ACTUAL_URL + "?" + self.request.QUERY_STRING, time.time() // (60 * 2))
+
 def _cache_key(method, self, id):
     return (self.portal.id, time.time() // (60 * 2))
     
@@ -30,20 +33,17 @@ class WSView(BrowserView):
         
         if id:
             if results:
-                self._data = results[0]
+                items = list(filter(lambda x: x['id'] == id, results))
+                if items:
+                    self._data = items[0]
         else:
-            for result in results:
-                self._data[result['id']] = result
-            self._data = sorted(list(self._data.values()), key=lambda k: k['Title'].lower())
+            self._data = sorted(results, key=lambda k: k['Title'].lower())
             
 
-    @ram.cache(_cache_key)
+    @ram.cache(lambda *args: time.time() // 60 * 2)
     def get_cached_results(self, id):
         results = []
-        if id:
-            brains = api.content.find(portal_type='polklibrary.type.rdb.models.database', id=id, sort_on='sortable_title', sort_order='ascending')
-        else:
-            brains = api.content.find(portal_type='polklibrary.type.rdb.models.database', sort_on='sortable_title', sort_order='ascending')
+        brains = api.content.find(portal_type='polklibrary.type.rdb.models.database', sort_on='sortable_title', sort_order='ascending')
         for brain in brains:
             results.append(self.transform(brain))
         return results

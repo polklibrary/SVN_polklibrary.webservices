@@ -35,7 +35,7 @@ class WSView(BrowserView):
             self._data = sorted(list(self._data.values()), key=lambda k: k['Title'])
 
             
-    @ram.cache(_cache_key)
+    @ram.cache(lambda *args: time.time() // 60*2)
     def get_cached_results(self):
         results = []
         brains = api.content.find(Subject=('ShowOnSubjectDropDown'), sort_on='sortable_title', sort_order='ascending')
