@@ -24,13 +24,13 @@ class WSView(BrowserView):
             sort_on='path',
         )
         
-        output = "Title,Path,Type,State,Path,Updated\n"
+        output = "Title,Path,Type,State,Updated\n"
         for brain in brains:
-           output += brain.Title + ','
-           output += brain.getPath() + ','
-           output += brain.Type + ','
-           output += str(brain.review_state) + ','
-           output += str(brain.ModificationDate).replace('T', ' ').replace('-06:00', ' ').replace('-05:00', ' ') + '\n'
+           output += "'" + brain.Title + "',"
+           output += "'" + brain.getPath() + "',"
+           output += "'" + brain.Type + "',"
+           output += "'" + str(brain.review_state) + "',"
+           output += "'" + str(brain.ModificationDate).replace('T', ' ').replace('-06:00', ' ').replace('-05:00', ' ') + "'\n"
             
         
         return output
