@@ -54,8 +54,14 @@ class WSView(BrowserView):
             self._data['coursepage'] = {
                 'url':cp.getURL(),
                 'description':'',
-                'title':cp.Title,
+                'title':cp.Title
             }
+            
+            # if not cp.activated:
+                # self._data['coursepage']['show_subject_resources'] = False
+            # else:
+                # self._data['coursepage']['show_subject_resources'] = cp.activated
+            
             # Handle Librarian Info
             path = os.path.split(cp.getPath())[0]
             lib = api.content.get(path=path)
