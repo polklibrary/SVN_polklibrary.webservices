@@ -12,6 +12,13 @@
         permission="cmf.ManagePortal"
         />
 
+        
+    <browser:page
+        for="*"
+        name="get_image_references"
+        class=".ws_get_image_references.WSView"
+        permission="cmf.ManagePortal"
+        />
 
     <browser:page
         for="*"
