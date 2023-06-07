@@ -17,7 +17,7 @@ class WSView(BrowserView):
                 'Image',
             ),
             sort_on='path',
-        )[start:limit]
+        )[start:start+limit]
         
         data = self.deep_search(brains)
         
