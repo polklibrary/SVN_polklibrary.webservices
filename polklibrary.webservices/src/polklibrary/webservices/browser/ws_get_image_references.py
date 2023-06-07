@@ -31,7 +31,7 @@ class WSView(BrowserView):
             if brain.getId in data:
                 output += 'Found on <br>'
                 for link in data[brain.getId]['FoundAt']:
-                    output += '<a href="'+link+'">' + link + '</a> <br>'
+                    output += '<a target="_blank" href="'+link+'">' + link + '</a> <br>'
            
             output += '</div><br><br>'
             
