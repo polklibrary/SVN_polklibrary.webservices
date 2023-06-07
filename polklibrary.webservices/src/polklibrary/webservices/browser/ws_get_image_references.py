@@ -26,6 +26,7 @@ class WSView(BrowserView):
            
             output += '<div>'
             output += '<a href="'+brain.getURL()+'/view"><img src="' + brain.getURL() + '/@@images/image/preview" /></a> <br>'
+            output += '<a href="'+brain.getURL()+'/delete_confirmation">Delete?</a> <br>'
            
             if brain.getId in data:
                 output += 'Found on <br>'
